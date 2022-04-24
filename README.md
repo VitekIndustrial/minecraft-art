@@ -37,11 +37,11 @@ The program generates from the original photo an art consisting of Minecraft gam
 <br/>
 **Input3:**
 <br/>
-![image](https://lh6.googleusercontent.com/8Jk0Bn85fvgocjsMAmVvsnmEJMGV6x8RYUIprafst9YTkJrXQFIUAkGHHso8axKGKkGi3kzXtoKU1w1fP_Gg=w1366-h662)
+![image](https://user-images.githubusercontent.com/104269586/164993887-5c6dbe27-75fd-483a-b433-9c6eff2d5fd2.jpg)
 <br/>
 **Output3:**
 <br/>
-![image](https://lh3.googleusercontent.com/nZubZNN812RVe_hI9vbdzfQNIk0eU2JwGrOlxqVaLHTLD9xHVVjCCpnCGTu4d1r-WaA02kI224QUgRTQa9AB=w1366-h662-rw)
+![image](https://user-images.githubusercontent.com/104269586/164993950-3b8eef24-f153-4b21-b207-6ee09d297933.jpg)
 ## :shipit: To be continued :shipit:
 Next, we will generate these Minecraft-Arts in the Minecraft world using the Minecraft-Api :relaxed:
 <br/>
