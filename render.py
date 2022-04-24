@@ -42,7 +42,7 @@ def multiThreading_listcolor2(pix, h1, h2, w):
 def getMCP(img, model):
     listcolor = pollisttetracasr(img)
     size = img.size
-    model = joblib.load('models\{}.pkl'.format(model))
+    model = joblib.load('{}.pkl'.format(model))
     pr = model.predict(listcolor)
     listblc = []
     i = 0
@@ -55,6 +55,8 @@ def getMCP(img, model):
     return listblc, size[0], size[1]
 
 def render(file_name, img, model):
+    global listc1, listc2
+    listc1, listc2 = [], []
     list, w, h = getMCP(img, model)
     img = Image.new("RGB", (w * 16, h * 16), (255, 255, 255))
     t3 = threading.Thread(target=multiThreading_render3, args=(img, list,))
