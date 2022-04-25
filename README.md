@@ -29,17 +29,9 @@ The program generates from the original photo an art consisting of Minecraft gam
 <br/>
 **Input2:**
 <br/>
-![image](https://user-images.githubusercontent.com/104269586/164979504-0b3ef186-bd88-42bc-a03a-7a5d0c16b94e.png)
-<br/>
-**Output2:**
-<br/>
-![image](https://user-images.githubusercontent.com/104269586/164979548-5e34e9ff-d773-4d4e-a3b6-65fae406ac9b.png)
-<br/>
-**Input3:**
-<br/>
 ![image](https://user-images.githubusercontent.com/104269586/164993887-5c6dbe27-75fd-483a-b433-9c6eff2d5fd2.jpg)
 <br/>
-**Output3:**
+**Output2:**
 <br/>
 ![image](https://user-images.githubusercontent.com/104269586/164993950-3b8eef24-f153-4b21-b207-6ee09d297933.jpg)
 ## :shipit: To be continued :shipit:
