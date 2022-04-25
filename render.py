@@ -1,16 +1,18 @@
 from PIL import Image
 import joblib, threading
 
+#-----------------------------------загрузка и изменение размеров изображения------------
 def loadimg(name, h):
     try:
-        img = Image.open(name)
+        img = Image.open(name)                            # загрузка изображения в переменную img
         razm = img.size
         weight = int(h * razm[0] // razm[1]) // 2 * 2
-        img = img.resize((weight, h))
+        img = img.resize((weight, h))                     # изменение размеров изображения
         return img
     except FileNotFoundError:
         print("Файл не найден")
-
+# -----------------------------------загрузка и изменение размеров изображения------------
+# --------------запись информации о цвете каждого пикселя в список listcolor--------------
 def pollisttetracasr(img):
     global listc1, listc2
     listcolor = []
@@ -25,25 +27,26 @@ def pollisttetracasr(img):
     listcolor += listc2
     return listcolor
 
-def multiThreading_listcolor1(pix, h1, h2, w):
+def multiThreading_listcolor1(pix, h1, h2, w):               # первый поток
     global listc1
     for y in range(h1, h2):
         for x in range(w):
             rgb = (pix[x, y][0], pix[x, y][1], pix[x, y][2])
             listc1.append(rgb)
 
-def multiThreading_listcolor2(pix, h1, h2, w):
+def multiThreading_listcolor2(pix, h1, h2, w):               # второй поток
     global listc2
     for y in range(h1, h2):
         for x in range(w):
             rgb = (pix[x, y][0], pix[x, y][1], pix[x, y][2])
             listc2.append(rgb)
-
+# --------------запись информации о цвете каждого пикселя в список listcolor--------------
+# --------------предсказание id блока каждого пикселя изображения-----------------------
 def getMCP(img, model):
-    listcolor = pollisttetracasr(img)
+    listcolor = pollisttetracasr(img)   # получение обработанного списка информации по каждому пикселю
     size = img.size
-    model = joblib.load('{}.pkl'.format(model))
-    pr = model.predict(listcolor)
+    model = joblib.load('{}.pkl'.format(model))   # подключение модели
+    pr = model.predict(listcolor)                 # получение списка предсказанных значений
     listblc = []
     i = 0
     for b in range(size[1]):
@@ -51,19 +54,20 @@ def getMCP(img, model):
         for c in range(size[0]):
             stro.append(int(pr[i]))
             i += 1
-        listblc.append(stro)
+        listblc.append(stro)    # получение готового списка с id блоков для построения изображения
     return listblc, size[0], size[1]
-
+# --------------предсказание id блока каждого пикселя изображения-----------------------
+# -------------------------рендер конечного изображения --------------------------------
 def render(file_name, img, model):
     global listc1, listc2
     listc1, listc2 = [], []
     list, w, h = getMCP(img, model)
-    img = Image.new("RGB", (w * 16, h * 16), (255, 255, 255))
+    img = Image.new("RGB", (w * 16, h * 16), (255, 255, 255))     # создание нового изображения (холста)
     t3 = threading.Thread(target=multiThreading_render3, args=(img, list,))
     t4 = threading.Thread(target=multiThreading_render4, args=(img, list,))
     t3.start(); t4.start()
     t3.join(); t4.join()
-    img.save('output\{}.jpg'.format(file_name), quality=100)
+    img.save('output\{}.jpg'.format(file_name), quality=100)   # сохранение конечного изображения
     print('Фото готово, проверьте папку output')
 
 def multiThreading_render3(img, list):
@@ -85,3 +89,4 @@ def multiThreading_render4(img, list):
             block_img = Image.open('textures\{}.png'.format(block))
             img.paste(block_img, (x, y))
             x += 16
+# -------------------------рендер конечного изображения --------------------------------
