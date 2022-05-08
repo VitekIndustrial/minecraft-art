@@ -5,7 +5,7 @@ The program generates from the original photo an art consisting of Minecraft gam
 ## :bulb: Features :bulb:
 + The program runs on a *sklearn regression tree model* trained on a self-made dataset
 + Python *version 3.8*
-+ The model reached a minimum error of *0.014%*
++ The model reached a minimum error of *1.4%*
 + Multithreading applied
 + There is a setting for the *height* of the final image in Minecraft blocks, the *width* changes proportionally (It should be noted that the larger the height, the longer the code will be executed.)
 + The maximum height of the final square image is **4096** (Also depends on your amount of RAM. With 12 GB, I only have enough for 1000 blocks)
@@ -19,13 +19,13 @@ The program generates from the original photo an art consisting of Minecraft gam
 + Install all the dependencies from **requirements.txt** via pip install -r requirements.txt
 + Run **main.py**
 ## :cookie: Result :cookie:
-**Input1:**
+**Input:**
 <br/>
-![image](https://user-images.githubusercontent.com/104269586/164979346-9f9908b8-e147-4411-8706-8577a0fcf0ed.png)
+![1](https://user-images.githubusercontent.com/104269586/167307417-3a4ec958-1058-4699-acd5-5b23772a04a4.jpg)
 <br/>
-**Output1:**
+**Output:**
 <br/>
-![image](https://user-images.githubusercontent.com/104269586/164979535-9e362c42-03d1-4cca-b17c-257d0be22ad6.png)
+![1m3](https://user-images.githubusercontent.com/104269586/167307507-ffc09738-2a82-4a48-b745-e6fd1b2792db.jpg)
 ## :shipit: To be continued :shipit:
 Next, we will generate these Minecraft-Arts in the Minecraft world using the Minecraft-Api :relaxed:
 <br/>
